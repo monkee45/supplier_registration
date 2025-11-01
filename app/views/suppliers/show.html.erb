@@ -1,0 +1,40 @@
+<h1>
+  <%= format_name(@supplier) %>
+</h1>
+<h3>ABN: <%= @supplier.abn %>
+    <% if @supplier.abn_status=='Active' %>
+      <span class="omib-green" <%=@supplier.abn_status %> </span>
+      <% else %>
+        <span class="text-warning" <%=@supplier.abn_status %> </span>
+        <% end %>
+</h3>
+<br /><br />
+<table>
+  <tr>
+    <th>ABN Status</th>
+    <th>Registration Start Date</th>
+    <th>Primary Contact</th>
+    <th>Primary Contact Phone</th>
+  </tr>
+  <tr>
+    <td>
+      <%= @supplier.abn_status %>
+    </td>
+    <td class="number_right">
+      <%= format_date(@supplier) %>
+    </td>
+    <td>
+      <%= @supplier.primary_contact_name %>
+    </td>
+    <td class="number_right">
+      <%= @supplier.primary_phone_number %>
+    </td>
+  </tr>
+</table>
+
+<section class="admin">
+  <%= link_to pluralize(@supplier.reviews.size, "Review" ), supplier_reviews_path(@supplier), class: 'button' %>
+    <%= link_to 'Edit' , edit_supplier_path(@supplier), class: 'button' %>
+      <%= link_to 'Delete' , supplier_path(@supplier), class: 'button' , method: :delete, data:
+        {confirm: 'Are you sure?' } %>
+</section>

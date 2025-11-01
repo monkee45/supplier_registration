@@ -1,0 +1,37 @@
+<header id="content-header">
+<h1>Supplier Record </h1>
+</header>
+
+<%= form_with url: "lookup", method: "put", local: "true" do |form| %>
+  <%= label_tag(:abn, "ABN: ") %>
+  <%= text_field_tag :abn, nil, placeholder: 'Enter...', size: 25, autofocus: true %> <br/><br/>
+
+  <%= label_tag(:abn, "Password: ") %>
+  <%= password_field_tag :password %> <br/><br/>
+
+  <%= label_tag(:abn, "Telephone: ") %>
+  <%= telephone_field :user, :phone  %> <br/><br/>
+
+  <%= label_tag(:abn, "Date Field: ") %>
+  <%= date_field :abn, :born_on %> <br/><br/>
+
+  <%= label_tag(:abn, "ABN: ") %>
+  <%= url_field :abn, :url_address %> <br/><br/>
+
+  <%= label_tag(:abn, "Yes: ") %> 
+  <%= check_box_tag :other_stuff %> <br/><br/>
+
+  <%= label_tag(:city, "Select your city: ") %>
+  <%= select_tag(:city, options_for_select([['Lisbon', 1], ['Madrid', 2], ['Berlin', 3] ])) %> <br/><br/>
+
+  <%= label_tag(:age, "Select your Category: ") %><br/><br/>
+  <%= radio_button_tag(:age, "child") %>
+  <%= label_tag(:age_child, "I am younger than 21") %><br/><br/>
+  <%= radio_button_tag(:age, "adult") %>
+  <%= label_tag(:age_adult, "I am over 21") %><br/><br/>
+
+  <%= label_tag(:person, "Timezone: ") %>
+  <%= time_zone_select(:person, :time_zone) %><br/><br/>
+
+  <%= form.submit "Submit", :name => nil %>
+<% end %>

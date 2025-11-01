@@ -1,0 +1,32 @@
+<%= form_with(model: supplier, local: true) do |f| %>
+  <%= render "shared/errors", object: supplier %>
+      <%= f.label :registered_name, "Registered Name", autofocus: true %>
+      <%= f.text_field :registered_name, size: 60 %>
+      <%= f.label :abn, 'ABN' %>
+      <%= f.text_field :abn %>
+      <%= f.label :abn_status, 'ABN Status' %>
+      <%= f.text_field :abn_status %>
+      <%= f.label :registration_start_date %>
+      <%= f.date_select :registration_start_date, {order: [:day, :month, :year]}, {class: "date"} %> <br/>
+      <%= f.label :primary_contact_name %>
+      <%= f.text_field :primary_contact_name %>
+      <%= f.label :primary_phone_number %>
+      <%= f.telephone_field :primary_phone_number %>
+
+      <%= f.check_box :terms_and_conditions_accepted, class: "checkbox" %>
+      <%= f.label :terms_and_conditions_accepted, "Agreed to the Terms & Conditions." %><br/>
+      <%= f.label :tnc_accepted_date, "Terms & Conditions Accepted Date: " %>
+      <%= f.date_select :tnc_accepted_date, {order: [:day, :month, :year]}, {class: "date"} %> <br/>
+      <%= f.check_box :gmrs_accepted %>
+      <%= f.label :gmrs_accepted, "GMRs Accepted".html_safe %><br/>
+      <%= f.label :gmrs_accepted_date, "GMRs Accepted Date: " %>
+      <%= f.date_select :gmrs_accepted_date, {order: [:day, :month, :year]}, {class: "date"} %><br/>
+      <%= f.label :organization_type %>
+      <%= f.text_field :organization_type, size: 40 %>
+      <%= f.label :screening_status %>
+      <%= f.select :screening_status, Supplier::SCREEN_STATUS, prompt: "Pick one", size: 10 %>
+
+    <%= f.submit  %>
+    <%= link_to "Cancel", suppliers_path, class: 'btn btn-secondary' %>
+
+<% end %>

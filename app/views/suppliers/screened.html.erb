@@ -1,0 +1,26 @@
+
+<% @suppliers.each do |supplier| %>
+
+  <article class="supplier">
+    <div class="summary">
+      <div class="row">
+        <div class="col-md-2">
+          <%= link_to(supplier.abn, supplier_path(supplier)) %>
+        </div>
+        <div class="col-md-5">
+          <%= format_name(supplier) %>
+        </div>
+        <div class="col-md-3">
+          <%= supplier.abn_status %>
+        </div>
+        <div class="col-md-2">
+          <%= supplier.screening_status %>
+        </div>
+
+      </div>
+    </article>
+<% end %>
+
+<section class="admin">
+  <%= link_to 'Add My New Supplier', :new_supplier, class: "button" %>
+</section>

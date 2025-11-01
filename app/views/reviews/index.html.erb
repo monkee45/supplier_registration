@@ -1,0 +1,8 @@
+<h3>Reviews for <%= link_to @supplier.registered_name, @supplier %></h3>
+<ul class="reviews">
+  <% @reviews.each do |r| %>
+    <li>
+    <%= pluralize(r.stars, 'star')%> from <%=r.name%> for <%=r.scope_of_work%>
+    </li>
+    <% end %>
+<ul>
