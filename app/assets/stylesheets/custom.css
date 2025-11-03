@@ -15,3 +15,25 @@
     box-shadow: none;
     transform: translateY(2px);
 }
+
+.btn-primary {
+  color: #fff;
+  background-color: #499FA4;
+  border-color: #3D4A55;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #37787b;
+    border-color: #285e8e; /*set the color you want here*/
+}
+
+.row { padding: 0.5em;}
+
+
+input[type="checkbox"] {
+  margin-left: 2em;
+  width: 20px;
+  height: 20px;
+  accent-color: #37787b;
+}

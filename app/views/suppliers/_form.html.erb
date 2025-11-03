@@ -1,32 +1,97 @@
 <%= form_with(model: supplier, local: true) do |f| %>
-  <%= render "shared/errors", object: supplier %>
-      <%= f.label :registered_name, "Registered Name", autofocus: true %>
-      <%= f.text_field :registered_name, size: 60 %>
-      <%= f.label :abn, 'ABN' %>
-      <%= f.text_field :abn %>
-      <%= f.label :abn_status, 'ABN Status' %>
-      <%= f.text_field :abn_status %>
-      <%= f.label :registration_start_date %>
-      <%= f.date_select :registration_start_date, {order: [:day, :month, :year]}, {class: "date"} %> <br/>
-      <%= f.label :primary_contact_name %>
-      <%= f.text_field :primary_contact_name %>
-      <%= f.label :primary_phone_number %>
-      <%= f.telephone_field :primary_phone_number %>
+  <%= render "shared/errors" , object: supplier %>
+  <div class = "containter">
+    <div class = "row">
+      <div class="col-1">
+        <%= f.label :registered_name, "Name" , autofocus: true %>
+      </div>
+      <div class="col-5">
+        <%= f.text_field :registered_name, size: 30 %>
+      </div>
+      <div class = "col-2">
+        <%= f.label :registration_start_date, "Registration Date" %>
+      </div>
+      <div class="col-4">
+        <%= f.text_field :registration_start_date, value: 
+        @supplier.registration_start_date.strftime("%d-%b-%Y"), class: "datepicker" %> 
 
-      <%= f.check_box :terms_and_conditions_accepted, class: "checkbox" %>
-      <%= f.label :terms_and_conditions_accepted, "Agreed to the Terms & Conditions." %><br/>
-      <%= f.label :tnc_accepted_date, "Terms & Conditions Accepted Date: " %>
-      <%= f.date_select :tnc_accepted_date, {order: [:day, :month, :year]}, {class: "date"} %> <br/>
-      <%= f.check_box :gmrs_accepted %>
-      <%= f.label :gmrs_accepted, "GMRs Accepted".html_safe %><br/>
-      <%= f.label :gmrs_accepted_date, "GMRs Accepted Date: " %>
-      <%= f.date_select :gmrs_accepted_date, {order: [:day, :month, :year]}, {class: "date"} %><br/>
-      <%= f.label :organization_type %>
-      <%= f.text_field :organization_type, size: 40 %>
-      <%= f.label :screening_status %>
-      <%= f.select :screening_status, Supplier::SCREEN_STATUS, prompt: "Pick one", size: 10 %>
+      </div>
+    </div>
 
-    <%= f.submit  %>
-    <%= link_to "Cancel", suppliers_path, class: 'btn btn-secondary' %>
+    <div class = "row border">
+      <div class="col-1">
+        <%= f.label :abn, 'ABN' %>  
+      </div>
+      <div class="col-5">
+        <%= f.text_field :abn %>
+      </div>
+      <div class="col-2">
+        <%= f.label :abn_status, 'ABN Status' %>   
+      </div>
+      <div class="col-1">
+        <%= f.text_field :abn_status %>
+      </div>
+    </div>
 
+    <div class = "row border">  
+      <div class = "col-6">
+        <%= f.label :primary_contact_name, "Primary Contact" %> 
+        <%= f.text_field :primary_contact_name %>
+      </div>
+      <div class = "col-2">
+        <%= f.label :primary_phone_number, "Phone Number" %> 
+      </div>
+      <div class = "col-2">
+          <%= f.telephone_field :primary_phone_number %>
+      </div>
+    </div>
+
+    <div class="row border">
+      <div class="col-6">
+        <%= f.label :terms_and_conditions_accepted, "Terms & Conditions Agreed" %>
+        <%= f.check_box :terms_and_conditions_accepted, {class: "custom-checkbox"} %>
+      </div>
+
+      <div class="col-2">
+        <%= f.label :tnc_accepted_date, "Terms & Conditions Accepted Date: " %>
+      </div>
+       <div class="col-2">
+          <%= f.text_field :tnc_accepted_date, value: 
+          @supplier.tnc_accepted_date.strftime("%d-%b-%Y"), class: "datepicker" %> 
+        </div>
+    </div>
+
+    <div class="row border">
+      <div class="col-6">
+        <%= f.label :gmrs_accepted, "GMRs Accepted" .html_safe %>
+        <%= f.check_box :gmrs_accepted %>
+      </div> 
+      <div class="col-2">
+        <%= f.label :gmrs_accepted_date, "GMRs Accepted Date: " %>
+      </div>
+      <div class="col-2">
+        <%= f.text_field :gmrs_accepted_date, value: 
+        @supplier.gmrs_accepted_date.strftime("%d-%b-%Y"), class: "datepicker" %> 
+      </div> 
+    </div>
+
+    <div class="row border">
+      <div class="col-6">
+        <%= f.label :organization_type, "Organizaton Type"%>
+        <%= f.text_field :organization_type, size: 40 %>
+      </div>
+      <div class="col-2">
+        <%= f.label :screening_status %>
+      </div>
+      <div class="col-2">
+        <%= f.select :screening_status, options_for_select(Supplier::SCREEN_STATUS) %>
+       </div>
+    </div> 
+    
+  
+    <div class="pt-5">
+      <%= f.submit class: "btn btn-primary"%>
+      <%= link_to "Cancel" , suppliers_path, class: 'btn btn-secondary' %>
+    </div>
+</div>
 <% end %>
