@@ -28,12 +28,19 @@
     border-color: #285e8e; /*set the color you want here*/
 }
 
-.row { padding: 0.5em;}
-
 
 input[type="checkbox"] {
-  margin-left: 2em;
-  width: 20px;
-  height: 20px;
+  zoom: 1.5;
   accent-color: #37787b;
+}
+
+.btn-new { width: 10em;}
+
+.select-box { 
+  background-color: white;
+  height: wem;
+}
+
+.custom-checkbox {
+  margin-left: 2em;
 }

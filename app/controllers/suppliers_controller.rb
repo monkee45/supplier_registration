@@ -25,6 +25,9 @@ class SuppliersController < ApplicationController
 
   def new
     @supplier = Supplier.new
+    @supplier.registration_start_date = Time.now
+    @supplier.tnc_accepted_date = Time.now
+    @supplier.gmrs_accepted_date = Time.now
   end
 
   def create

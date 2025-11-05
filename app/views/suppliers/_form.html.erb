@@ -1,91 +1,100 @@
 <%= form_with(model: supplier, local: true) do |f| %>
   <%= render "shared/errors" , object: supplier %>
-  <div class = "containter">
+  <div class = "d-grid gap-3 align">
     <div class = "row">
-      <div class="col-1">
+      <div class="col-2 d-flex align-items-center">
         <%= f.label :registered_name, "Name" , autofocus: true %>
       </div>
-      <div class="col-5">
+      <div class="col-4 d-flex align-items-center">
         <%= f.text_field :registered_name, size: 30 %>
       </div>
-      <div class = "col-2">
+      <div class = "col-2 d-flex align-items-center">
         <%= f.label :registration_start_date, "Registration Date" %>
       </div>
-      <div class="col-4">
+      <div class="col-4 d-flex align-items-center">
         <%= f.text_field :registration_start_date, value: 
         @supplier.registration_start_date.strftime("%d-%b-%Y"), class: "datepicker" %> 
 
       </div>
     </div>
 
-    <div class = "row border">
-      <div class="col-1">
+    <div class = "row">
+      <div class="col-2 d-flex align-items-center">
         <%= f.label :abn, 'ABN' %>  
       </div>
-      <div class="col-5">
+      <div class="col-4 d-flex align-items-center">
         <%= f.text_field :abn %>
       </div>
-      <div class="col-2">
+      <div class="col-2 d-flex align-items-center">
         <%= f.label :abn_status, 'ABN Status' %>   
       </div>
-      <div class="col-1">
+      <div class="col-1 d-flex align-items-center">
         <%= f.text_field :abn_status %>
       </div>
     </div>
 
-    <div class = "row border">  
-      <div class = "col-6">
+    <div class = "row">  
+      <div class = "col-2 d-flex align-items-center">
         <%= f.label :primary_contact_name, "Primary Contact" %> 
+      </div>
+      <div class = "col-4 d-flex align-items-center">
         <%= f.text_field :primary_contact_name %>
       </div>
-      <div class = "col-2">
+      <div class = "col-2 d-flex align-items-center">
         <%= f.label :primary_phone_number, "Phone Number" %> 
       </div>
-      <div class = "col-2">
+      <div class = "col-2 d-flex align-items-center">
           <%= f.telephone_field :primary_phone_number %>
       </div>
     </div>
 
-    <div class="row border">
-      <div class="col-6">
-        <%= f.label :terms_and_conditions_accepted, "Terms & Conditions Agreed" %>
-        <%= f.check_box :terms_and_conditions_accepted, {class: "custom-checkbox"} %>
+    <div class="row">
+      <div class="col-2 d-flex align-items-center">
+        <%= f.label :terms_and_conditions_accepted, "T & C's Agreed" %>
+      </div>
+      <div class="col-4 d-flex align-items-center">
+        <%= f.check_box :terms_and_conditions_accepted %>
       </div>
 
-      <div class="col-2">
+      <div class="col-2 d-flex align-items-center">
         <%= f.label :tnc_accepted_date, "Terms & Conditions Accepted Date: " %>
       </div>
-       <div class="col-2">
+       <div class="col-2 d-flex align-items-center">
           <%= f.text_field :tnc_accepted_date, value: 
           @supplier.tnc_accepted_date.strftime("%d-%b-%Y"), class: "datepicker" %> 
         </div>
     </div>
 
-    <div class="row border">
-      <div class="col-6">
+    <div class="row d-flex align-items-center">
+      <div class="col-2 d-flex align-items-center">
         <%= f.label :gmrs_accepted, "GMRs Accepted" .html_safe %>
+      </div> 
+      <div class="col-4 d-flex align-items-center">
         <%= f.check_box :gmrs_accepted %>
       </div> 
-      <div class="col-2">
+      <div class="col-2 d-flex align-items-center">
         <%= f.label :gmrs_accepted_date, "GMRs Accepted Date: " %>
       </div>
-      <div class="col-2">
+      <div class="col-2 d-flex align-items-center">
         <%= f.text_field :gmrs_accepted_date, value: 
         @supplier.gmrs_accepted_date.strftime("%d-%b-%Y"), class: "datepicker" %> 
       </div> 
     </div>
 
-    <div class="row border">
-      <div class="col-6">
+    <div class="row">
+      <div class="col-2 d-flex align-items-center">
         <%= f.label :organization_type, "Organizaton Type"%>
-        <%= f.text_field :organization_type, size: 40 %>
       </div>
-      <div class="col-2">
+      <div class="col-4 d-flex align-items-center">
+        <%= f.text_field :organization_type, size: 30 %>
+      </div>
+      <div class="col-2 d-flex align-items-center">
         <%= f.label :screening_status %>
       </div>
-      <div class="col-2">
-        <%= f.select :screening_status, options_for_select(Supplier::SCREEN_STATUS) %>
-       </div>
+      <div class="col-2 d-flex align-items-center">
+        <%= f.select :screening_status, 
+          options_for_select(Supplier::SCREEN_STATUS, @supplier.screening_status), {}, class: "select-box" %>
+      </div>
     </div> 
     
   

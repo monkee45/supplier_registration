@@ -1,9 +1,7 @@
 
-<% @suppliers.each do |supplier| %>
-
-  <article class="supplier">
-    <div class="summary">
-      <div class="row">
+<div class="d-grid gap-3">
+  <% @suppliers.each do |supplier| %>
+      <div class="row class="border-success">
         <div class="col-md-2">
           <%= link_to(supplier.abn, supplier_path(supplier)) %>
         </div>
@@ -11,16 +9,25 @@
           <%= format_name(supplier) %>
         </div>
         <div class="col-md-3">
-          <%= supplier.abn_status %>
+          <% if supplier.abn_status=="Active" %>
+            <span class="omib-green">
+              <%=supplier.abn_status %>
+            </span>
+            <% else %>
+              <span class="text-danger">
+                <%=supplier.abn_status %>
+              </span>
+        <% end %>
         </div>
         <div class="col-md-2">
-          <%= supplier.screening_status %>
+          <%= supplier.screening_status.capitalize %>
         </div>
-
       </div>
-    </article>
-<% end %>
+  <% end %>
+</div>
 
-<section class="admin">
-  <%= link_to 'Add My New Supplier', :new_supplier, class: "button" %>
-</section>
+    <section class="row text-center pt-5">
+      <div class="col">
+        <%= link_to 'New' , :new_supplier, class: "btn btn-lg btn-primary btn-new" %>
+      </div>
+    </section>
