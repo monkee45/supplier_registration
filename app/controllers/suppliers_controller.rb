@@ -51,6 +51,6 @@ class SuppliersController < ApplicationController
 
 private
   def supplier_params
-    params.require(:supplier).permit!
+    params.require(:supplier).permit(:registered_name, :registration_start_date, :abn, :abn_status, :primary_contact_name, :primary_phone_number, :terms_and_conditions_accepted, :tnc_accepted_date, :gmrs_accepted, :gmrs_accepted_date, :organization_type, :screening_status)
   end
 end
