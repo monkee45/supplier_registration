@@ -20,7 +20,7 @@ gem "cssbundling-rails"
 gem "jbuilder"
 
 # Bootstrap Datepicker
-gem 'bootstrap-datepicker-rails'
+gem "bootstrap-datepicker-rails"
 
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
@@ -59,7 +59,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem 'rubocop', '~> 1.81', '>= 1.81.7'
+  gem "rubocop", "~> 1.81", ">= 1.81.7"
 end
 
 group :development do
