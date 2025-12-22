@@ -61,7 +61,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem "rubocop", "~> 1.81", ">= 1.81.7"
+  gem "rubocop", "~> 1.82"
 end
 
 group :development do
