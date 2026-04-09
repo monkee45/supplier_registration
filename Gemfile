@@ -62,7 +62,9 @@ group :development, :test do
 
   gem "rubocop", "~> 1.82"
 
-  gem "rack", ">= 3.2.5"
+  gem "rack", "~> 3.2.5"
+
+  gem "nokogiri", "~>1.19.1"
 end
 
 group :development do
