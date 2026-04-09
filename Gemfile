@@ -61,6 +61,8 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "rubocop", "~> 1.82"
+
+  gem "rack", ">= 3.2.5"
 end
 
 group :development do
