@@ -393,7 +393,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap-datepicker-rails
-  brakeman (~> 8.0.4)
+  brakeman
   bundler-audit
   capybara
   cssbundling-rails
