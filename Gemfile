@@ -60,7 +60,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem "rubocop", "~> 1.82"
+  gem "rubocop", "~> 1.86"
 
   gem "rack", "~> 3.2.5"
 
