@@ -64,7 +64,7 @@ group :development, :test do
 
   gem "rack", "~> 3.2.5"
 
-  gem "nokogiri", "~>1.19.1"
+  gem "nokogiri", "~>1.19.3"
 end
 
 group :development do
